@@ -2,12 +2,14 @@
 # Start backend and frontend
 set -e
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 echo "🚀 株式分析アプリを起動します..."
 
 # Start backend
 echo "📡 バックエンドを起動中 (port 8000)..."
-cd "$(dirname "$0")/backend"
-uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload &
+cd "$SCRIPT_DIR/backend"
+./venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload &
 BACKEND_PID=$!
 
 # Wait for backend to be ready
@@ -15,7 +17,7 @@ sleep 3
 
 # Start frontend
 echo "🌐 フロントエンドを起動中 (port 5173)..."
-cd "$(dirname "$0")/frontend"
+cd "$SCRIPT_DIR/frontend"
 npm run dev &
 FRONTEND_PID=$!
 
