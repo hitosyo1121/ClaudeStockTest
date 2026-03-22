@@ -42,6 +42,16 @@ powershell -ExecutionPolicy Bypass -File "\\wsl.localhost\Ubuntu\home\hitosyo\te
 
 ---
 
+## Claude Codeの起動
+
+WSL2ターミナルで以下を実行：
+```bash
+cd /home/hitosyo/testproject/ClaudeStockTest
+claude
+```
+
+---
+
 ## ソースコードをGitHubにプッシュする手順
 
 WSL2ターミナルで変更をコミット：
